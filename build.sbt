@@ -1,7 +1,7 @@
 import sbt.Keys.crossScalaVersions
 import sbt._
 
-val name = "test-private-library"
+val name = "test-public-library"
 
 lazy val library = Project(name, file("."))
   .enablePlugins(SbtAutoBuildPlugin, SbtGitVersioning, SbtArtifactory)
