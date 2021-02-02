@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,19 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.http
+package uk.gov.hmrc.lib
 
-class UrlValidationException(val url: String, val context: String, val message: String) extends Exception {
-  override def getMessage: String =
-    s"'$url' is invalid for $context. $message"
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpecLike
+
+
+class LibSpec
+  extends AnyWordSpecLike
+     with Matchers {
+
+  "Lib.helloworld" should {
+    "return HelloWorld" in {
+      Lib.helloWorld shouldBe "HelloWorld"
+    }
+  }
 }
