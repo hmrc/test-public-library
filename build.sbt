@@ -9,14 +9,8 @@ lazy val library = Project(name, file("."))
     majorVersion                     := 0,
     makePublicallyAvailableOnBintray := true
   ).settings(
-    scalaVersion        := "2.11.12",
-    crossScalaVersions  := Seq("2.11.12", "2.12.8"),
-    libraryDependencies ++= AppDependencies.compile ++ AppDependencies.test,
-    PlayCrossCompilation.playCrossCompilationSettings,
+    scalaVersion        := "2.12.10",
+    libraryDependencies ++= LibDependencies.compile ++ LibDependencies.test,
     scalacOptions       ++= Seq("-deprecation"),
-    resolvers           := Seq(
-      Resolver.bintrayRepo("hmrc", "releases"),
-      Resolver.typesafeRepo("releases")
-    )
   )
   .disablePlugins(sbt.plugins.JUnitXmlReportPlugin)

@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 HM Revenue & Customs
+ * Copyright 2018 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,14 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.play.http.ws
+import sbt._
 
-import play.api.libs.ws.WSResponse
-import uk.gov.hmrc.http.HttpResponse
+object LibDependencies {
 
-class WSHttpResponse(wsResponse: WSResponse) extends HttpResponse {
-  override def allHeaders: Map[String, Seq[String]] = wsResponse.allHeaders
+  val compile: Seq[ModuleID] = Seq()
 
-  override def status = wsResponse.status
-
-  override def json = wsResponse.json
-
-  override def body = wsResponse.body
+  val test: Seq[ModuleID] = Seq(
+    "org.scalatest"          %% "scalatest"    % "3.1.1"   % Test,
+    "com.vladsch.flexmark"   %  "flexmark-all" % "0.35.10" % Test
+  )
 }
-
-trait WSHttp extends WSGet with WSPut with WSPost with WSDelete with WSPatch
